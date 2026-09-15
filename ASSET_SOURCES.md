@@ -22,3 +22,11 @@ Local WebP conversions in dist/assets/. No open reuse license verified.
 ## User-provided emotion references
 
 `dist/assets/user-reactions.png` is the screenshot supplied by the user on 2026-09-11, used unchanged as a CSS image atlas. Four display regions show grin, dejected full-body, eager, and sad close-up expressions. No new facial expressions generated; screenshot references are static.
+
+## Additional user-provided reaction sheets
+
+- dist/assets/friends-a.png: supplied screenshot with daydream, strong, silly and selfie expressions.
+- dist/assets/friends-b.png: supplied screenshot with pointing, double peace, thinking and sulky expressions.
+- dist/assets/friends-c.png: supplied screenshot with giggling expression.
+
+Original screenshots copied unchanged. Display crops are defined in experience.js and shared by CSS and canvas card rendering. No new facial expressions generated.
