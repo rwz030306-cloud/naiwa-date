@@ -49,6 +49,7 @@ function cardView(){
   return `<section class="card-studio" aria-label="约定卡片样式"><p class="section-label">给期待挑件衣服<span>切换样式，安排不会丢</span></p><div class="theme-picker">${Object.entries(themes).map(([key,t])=>`<button class="theme-choice ${key}" data-theme="${key}" aria-pressed="${cardTheme===key}"><span class="theme-swatch" aria-hidden="true">${key==='cinema'?'02':key==='contract'?'约':'♡'}</span><strong>${t.name}</strong><small>${t.tag}</small></button>`).join('')}</div><p id="cardStatus" class="tiny" role="status">奶娃正在装订这份期待…</p><div class="card-preview" id="ticket" aria-busy="true"><canvas id="cardCanvas" role="img" aria-label="约定卡片预览"></canvas></div><details class="card-details"><summary>查看约定文字</summary><pre>${esc(plainText())}</pre></details><div class="actions"><button class="primary pink" id="save" disabled>保存这张约定 ↓</button><button class="secondary" id="copy">复制文字</button></div><p class="tiny card-help">预览就是保存的样子。微信里长按生成的图片，发给我就约好了。</p><button class="restart" id="restart">再发起一次新约会</button></section>`;
 }
 function bindExperience(){
+  bindInvitation();
   const frame=$('.meme-frame')||$('.reaction');
   if(frame){
     const panel=document.createElement('div'); panel.className='pet-panel';
@@ -93,7 +94,7 @@ async function renderCard(){
     let im=null;try{im=await decoded(images[t.mood]);}catch{/* Keep a readable card if the image cannot load. */}
     if(version!==cardRenderId||!canvas.isConnected)return;
     const c=canvas.getContext('2d'),W=900,font='"PingFang SC","Microsoft YaHei",sans-serif';
-    const fields=[['见面日期',d.date],['见面时间',d.time],['一起去做',d.activities],...(d.food?[['吃点什么',d.food]]:[]),['见面坐标',d.place],...(d.preferences.length?[['小暗示 · 可以商量',d.preferences.join('、')]]:[])];
+    const fields=[['赴约主角',invitation.to+' & '+invitation.from],['见面日期',d.date],['见面时间',d.time],['一起去做',d.activities],...(d.food?[['吃点什么',d.food]]:[]),['见面坐标',d.place],...(d.preferences.length?[['小暗示 · 可以商量',d.preferences.join('、')]]:[]),['落款',invitation.sign]];
     c.font=`600 31px ${font}`;const max=theme==='contract'?660:700;
     const rows=fields.map(([label,value])=>({label,value,lines:textLines(c,value,max)}));
     const top=theme==='polaroid'?680:theme==='contract'?400:330;
