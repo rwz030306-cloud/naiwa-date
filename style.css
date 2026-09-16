@@ -13,3 +13,14 @@
 .dodge-track{position:relative;min-width:0;padding-bottom:6px}
 .dodge-track .no{position:relative;display:flex;top:auto;left:100%;width:65%;max-width:180px;min-height:55px;overflow-wrap:anywhere;--dodge-x:-100%;transform:translateX(var(--dodge-x));transition:left .18s,transform .18s}
 .dodge-track .no:active:not(:disabled){transform:translateX(var(--dodge-x))}
+
+/* Keep meme dimensions out of grid sizing, even when a reaction has a new crop ratio. */
+.intro{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.intro>div{min-width:0}
+.intro h1,.intro .sub{overflow-wrap:anywhere}
+.intro .meme-frame{width:100%;min-width:0;aspect-ratio:1/1;align-self:center;padding:0}
+.intro .meme-frame>.mood-art{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);min-width:0;max-width:100%;object-fit:contain}
+@media(max-width:600px){
+ .intro{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
+ .intro .meme-frame>.mood-art{inset:5px;width:calc(100% - 10px);height:calc(100% - 10px)}
+}
