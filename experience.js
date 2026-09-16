@@ -14,7 +14,7 @@ const newMoods = {
 for (const [name,[file,x,y,w,h,W,H,label]] of Object.entries(newMoods)) {
   images[name]='assets/'+file; referenceCrops[name]={x,y,w,h,W,H}; moodLabels[name]=label;
 }
-activityList.splice(activityList.length-2,0,['🌇','看日落'],['📷','拍照'],['🧺','公园野餐'],['🧩','手作 DIY'],['📚','逛书店']);
+activityList.splice(activityList.length-2,0,['🌇','看日落'],['📷','拍照'],['🧺','公园野餐'],['🧩','手作 DIY'],['📚','逛书店'],['🕵️','剧本杀'],['💆','按摩']);
 const activityLines={
   '吃饭':['giggle','胃已经空出来了，对面的位置也给你留好了。'],
   '看电影':['doublePeace','电影两小时，偷偷开心一整天。旁边的位置归你。'],
@@ -30,6 +30,8 @@ const activityLines={
   '公园野餐':['daydream','带上零食和你，今天的快乐就齐了。'],
   '手作 DIY':['strong','手不一定巧，但这次我真的很用心。'],
   '逛书店':['thinking','想翻的书很多，想一起逛的人就一个。'],
+  '剧本杀':['thinking','身份可以是假的，想和你组队是真的。'],
+  '按摩':['daydream','肩膀负责放松，嘴角负责偷偷上扬。'],
   '你来定':['thinking','选择题交给我。你负责出现，我负责期待。'],
   '自定义':['eager','你尽管写，奶娃已经在旁边认真记笔记了。']
 };
